@@ -1,0 +1,41 @@
+﻿@model SysPatrimonio.Models.DbDepartamento
+
+@{
+    ViewData["Title"] = "Criar Departamento";
+}
+
+<h1>Criar Departamento</h1>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Nome Departamento</label>
+                <input asp-for="nomedepartamento" class="form-control" />
+                <span asp-validation-for="nomedepartamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Descrição Departamento</label>
+                <input asp-for="descricaodepartamento" class="form-control" />
+                <span asp-validation-for="descricaodepartamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Nome Local</label>
+                <select asp-items=@ViewBag.Local2 asp-for="idlocal" class="form-control"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

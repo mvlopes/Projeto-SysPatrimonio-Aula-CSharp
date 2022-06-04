@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SysPatrimonio.Models.DbFornecedor>
+
+@{
+    ViewData["Title"] = "Fornecedores";
+}
+
+<h1>Fornecedores</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome Fornecedor
+                @*@Html.DisplayNameFor(model => model.nomefornecedor)*@
+            </th>
+            <th>
+                Endereço
+                @*@Html.DisplayNameFor(model => model.endereco)*@
+            </th>
+            <th>
+                Fone
+                @*@Html.DisplayNameFor(model => model.fone)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomefornecedor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.fone)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

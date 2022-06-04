@@ -1,0 +1,50 @@
+﻿@model IEnumerable<SysPatrimonio.Models.DtoDepartamento>
+
+@{
+    ViewData["Title"] = "Departamentos";
+}
+
+<h1>Departamentos</h1>
+
+<p>
+    <a asp-action="Create">Criar Novo</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nome Departamento
+                @*@Html.DisplayNameFor(model => model.nomedepartamento)*@
+            </th>
+            <th>
+                Descrição Departamento
+                @*@Html.DisplayNameFor(model => model.descricaodepartamento)*@
+            </th>
+            <th>
+                Nome Local
+                @*@Html.DisplayNameFor(model => model.nomelocal)*@
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomedepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaodepartamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomelocal)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detalhes</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

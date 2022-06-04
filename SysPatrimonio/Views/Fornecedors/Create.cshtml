@@ -1,0 +1,42 @@
+﻿@model SysPatrimonio.Models.DbFornecedor
+
+@{
+    ViewData["Title"] = "Criar Fornecedor";
+}
+
+<h1>Criar Fornecedor</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Nome Fornecedor</label>
+                <input asp-for="nomefornecedor" class="form-control" />
+                <span asp-validation-for="nomefornecedor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Endereço</label>
+                <input asp-for="endereco" class="form-control" />
+                <span asp-validation-for="endereco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Fone</label>
+                <input asp-for="fone" class="form-control" />
+                <span asp-validation-for="fone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
